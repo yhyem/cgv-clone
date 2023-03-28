@@ -1,7 +1,7 @@
 import React from "react";
 
-const CartPage = () => {
+const Header = () => {
   return <div></div>;
 };
 
-export default CartPage;
+export default Header;
