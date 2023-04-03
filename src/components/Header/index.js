@@ -6,6 +6,8 @@ import loginJoin from '../../assets/images/loginJoin.png';
 import loginMember from '../../assets/images/loginMember.png';
 import loginPassword from '../../assets/images/loginPassword.png';
 import loginCustomer from '../../assets/images/loginCustomer.png';
+import gotoTop from '../../assets/images/gotoTop.png';
+
 import ScrollTop from './ScrollTop.js';
 import ScrollBottom from './ScrollBottom.js';
 
@@ -45,6 +47,12 @@ const Header = () => {
       <LineBlock />
       <WrapHeaderBottomBlock>{position < 95 ? <ScrollTop /> : <ScrollBottom />}</WrapHeaderBottomBlock>
       {position < 95 ? <RedLineBlock /> : null}
+      {position < 95 ? null : (
+        <>
+          <TicketingButton>예매하기</TicketingButton>
+          <UpButton src={gotoTop}></UpButton>
+        </>
+      )}
     </>
   );
 };
@@ -105,6 +113,36 @@ const LineBlock = styled.div`
 const RedLineBlock = styled.div`
   height: 2px;
   background-color: #fa4357;
+`;
+
+const TicketingButton = styled.div`
+  position: fixed;
+  color: white;
+  width: 100px;
+  background: linear-gradient(45deg, #fb4856, #fe7056);
+  bottom: 100px;
+  right: 200px;
+  border-radius: 100px;
+  padding: 13px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px 1px #00000030;
+`;
+
+const UpButton = styled.button`
+  background-image: url(${gotoTop});
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: center;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  position: fixed;
+  bottom: 100px;
+  right: 150px;
+  box-shadow: 1px 1px 1px 1px #00000030;
 `;
 
 export default Header;
