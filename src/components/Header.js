@@ -5,6 +5,7 @@ import loginJoin from '../assets/images/loginJoin.png';
 import loginMember from '../assets/images/loginMember.png';
 import loginPassword from '../assets/images/loginPassword.png';
 import loginCustomer from '../assets/images/loginCustomer.png';
+import search from '../assets/images/search.png';
 
 const Header = () => {
   return (
@@ -40,6 +41,12 @@ const Header = () => {
           <BottomContent>예매</BottomContent>
           <BottomContent>스토어</BottomContent>
           <BottomContent>이벤트</BottomContent>
+          <RightBlock>
+            <ColumnLine />
+            <HeaderInput />
+            <SearchImg src={search} />
+            <ColumnLine />
+          </RightBlock>
         </HeaderBlock>
       </WrapHeaderBottomBlock>
       <RedLineBlock />
@@ -60,13 +67,13 @@ const WrapHeaderBottomBlock = styled.div`
 `;
 
 const HeaderBlock = styled.div`
-  width: 1200px;
+  width: 1000px;
   display: flex;
 `;
 
 const Title = styled.div`
-  color: #757575;
-  margin-top: 38px;
+  color: #585858;
+  margin-top: 30px;
 `;
 
 const LogoImg = styled.img`
@@ -90,19 +97,37 @@ const HeaderImg = styled.img`
 `;
 
 const HeaderContent = styled.div`
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: bold;
   color: #757575;
 `;
 
 const LineBlock = styled.div`
   height: 1px;
-  background-color: #eeeeee;
+  background-color: #e4e4e4;
 `;
 
 const BottomContent = styled.div`
   font-size: 17px;
   font-weight: bold;
   padding-right: 50px;
+`;
+
+const ColumnLine = styled.div`
+  width: 1px;
+  background-color: #e4e4e4;
+  margin: 0 10px;
+`;
+
+const HeaderInput = styled.input`
+  font-size: 17px;
+  border: none;
+  padding: 0 7px;
+`;
+
+const SearchImg = styled.img`
+  margin: auto;
+  width: 25px;
 `;
 
 const RedLineBlock = styled.div`
