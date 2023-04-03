@@ -1,13 +1,21 @@
+import { useState } from 'react';
+
 import styled from 'styled-components';
-import logoRed from '../assets/images/logoRed.png';
-import logoWhite from '../assets/images/logoWhite.png';
-import loginJoin from '../assets/images/loginJoin.png';
-import loginMember from '../assets/images/loginMember.png';
-import loginPassword from '../assets/images/loginPassword.png';
-import loginCustomer from '../assets/images/loginCustomer.png';
-import search from '../assets/images/search.png';
+import logoRed from '../../assets/images/logoRed.png';
+import loginJoin from '../../assets/images/loginJoin.png';
+import loginMember from '../../assets/images/loginMember.png';
+import loginPassword from '../../assets/images/loginPassword.png';
+import loginCustomer from '../../assets/images/loginCustomer.png';
+import ScrollTop from './ScrollTop.js';
+import ScrollBottom from './ScrollBottom.js';
 
 const Header = () => {
+  const [position, setPosition] = useState(0);
+  document.addEventListener('scroll', function () {
+    const afterPosition = document.documentElement.scrollTop;
+    setPosition(afterPosition);
+  });
+
   return (
     <>
       <WrapHeaderBlock>
@@ -35,21 +43,8 @@ const Header = () => {
         </HeaderBlock>
       </WrapHeaderBlock>
       <LineBlock />
-      <WrapHeaderBottomBlock>
-        <HeaderBlock>
-          <BottomContent>영화</BottomContent>
-          <BottomContent>예매</BottomContent>
-          <BottomContent>스토어</BottomContent>
-          <BottomContent>이벤트</BottomContent>
-          <RightBlock>
-            <ColumnLine />
-            <HeaderInput />
-            <SearchImg src={search} />
-            <ColumnLine />
-          </RightBlock>
-        </HeaderBlock>
-      </WrapHeaderBottomBlock>
-      <RedLineBlock />
+      <WrapHeaderBottomBlock>{position < 95 ? <ScrollTop /> : <ScrollBottom />}</WrapHeaderBottomBlock>
+      {position < 95 ? <RedLineBlock /> : null}
     </>
   );
 };
@@ -105,29 +100,6 @@ const HeaderContent = styled.div`
 const LineBlock = styled.div`
   height: 1px;
   background-color: #e4e4e4;
-`;
-
-const BottomContent = styled.div`
-  font-size: 17px;
-  font-weight: bold;
-  padding-right: 50px;
-`;
-
-const ColumnLine = styled.div`
-  width: 1px;
-  background-color: #e4e4e4;
-  margin: 0 10px;
-`;
-
-const HeaderInput = styled.input`
-  font-size: 17px;
-  border: none;
-  padding: 0 7px;
-`;
-
-const SearchImg = styled.img`
-  margin: auto;
-  width: 25px;
 `;
 
 const RedLineBlock = styled.div`
