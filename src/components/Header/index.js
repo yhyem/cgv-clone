@@ -46,8 +46,9 @@ const Header = () => {
       </WrapHeaderBlock>
       <LineBlock />
       <WrapHeaderBottomBlock>{position < 95 ? <ScrollTop /> : <ScrollBottom />}</WrapHeaderBottomBlock>
-      {position < 95 ? <RedLineBlock /> : null}
-      {position < 95 ? null : (
+      {position < 95 ? (
+        <RedLineBlock />
+      ) : (
         <>
           <TicketingButton>예매하기</TicketingButton>
           <UpButton src={gotoTop}></UpButton>
