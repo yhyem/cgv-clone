@@ -121,7 +121,7 @@ const TicketingButton = styled.div`
   color: white;
   width: 100px;
   background: linear-gradient(45deg, #fb4856, #fe7056);
-  bottom: 100px;
+  bottom: 90px;
   right: 200px;
   border-radius: 100px;
   padding: 13px;
@@ -141,7 +141,7 @@ const UpButton = styled.button`
   height: 45px;
   background-color: white;
   position: fixed;
-  bottom: 100px;
+  bottom: 90px;
   right: 150px;
   box-shadow: 1px 1px 1px 1px #00000030;
 `;
