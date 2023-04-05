@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SelectBox from './SelectBox';
 
 const Footer = () => {
   const FooterInfo = {
@@ -28,7 +29,10 @@ const Footer = () => {
           ))}
         </WrapFooterContent>
         <LineBlock />
-        <BottonFooterContent>{FooterInfo.info}</BottonFooterContent>
+        <WrapBottomFooter>
+          <BottonFooterContent>{FooterInfo.info}</BottonFooterContent>
+          <SelectBox />
+        </WrapBottomFooter>
       </WrapFooter>
     </FooterBlock>
   );
@@ -65,6 +69,10 @@ const FooterContent = styled.div`
 const LineBlock = styled.div`
   height: 1px;
   background-color: #ebebeb;
+`;
+
+const WrapBottomFooter = styled.div`
+  display: flex;
 `;
 
 const BottonFooterContent = styled.div`
