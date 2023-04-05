@@ -6,7 +6,7 @@ import loginJoin from '../../assets/images/loginJoin.png';
 import loginMember from '../../assets/images/loginMember.png';
 import loginPassword from '../../assets/images/loginPassword.png';
 import loginCustomer from '../../assets/images/loginCustomer.png';
-import gotoTop from '../../assets/images/gotoTop.png';
+import gotoTopBtn from '../../assets/images/gotoTop.png';
 
 import ScrollTop from './ScrollTop.js';
 import ScrollBottom from './ScrollBottom.js';
@@ -51,7 +51,7 @@ const Header = () => {
       ) : (
         <>
           <TicketingButton>예매하기</TicketingButton>
-          <UpButton src={gotoTop}></UpButton>
+          <UpButton src={gotoTopBtn} onClick={() => window.scrollTo(0, 0)}></UpButton>
         </>
       )}
     </>
@@ -131,7 +131,7 @@ const TicketingButton = styled.div`
 `;
 
 const UpButton = styled.button`
-  background-image: url(${gotoTop});
+  background-image: url(${gotoTopBtn});
   background-repeat: no-repeat;
   background-size: 15px;
   background-position: center;
