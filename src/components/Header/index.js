@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logoRed from '../../assets/images/logoRed.png';
 import loginJoin from '../../assets/images/loginJoin.png';
@@ -22,7 +22,9 @@ const Header = () => {
     <>
       <WrapHeaderBlock>
         <HeaderBlock>
-          <LogoImg src={logoRed} />
+          <Link to="/">
+            <LogoImg src={logoRed} />
+          </Link>
           <Title>C U L T U R E P L E X</Title>
           <RightBlock>
             <WrapHeaderImg>
@@ -51,7 +53,7 @@ const Header = () => {
       ) : (
         <>
           <TicketingButton>예매하기</TicketingButton>
-          <UpButton src={gotoTopBtn} onClick={() => window.scrollTo(0, 0)}></UpButton>
+          <UpButton onClick={() => window.scrollTo(0, 0)}></UpButton>
         </>
       )}
     </>

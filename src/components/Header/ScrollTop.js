@@ -1,15 +1,22 @@
-import React from 'react';
-
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import search from '../../assets/images/search.png';
 
 const ScrollTop = () => {
   return (
     <ScrollTopBlock>
-      <BottomContent>영화</BottomContent>
-      <BottomContent>예매</BottomContent>
-      <BottomContent>스토어</BottomContent>
-      <BottomContent>이벤트</BottomContent>
+      <LinkStyle to="/movies" style={{ textDecoration: 'none' }}>
+        <BottomContent>영화</BottomContent>
+      </LinkStyle>
+      <LinkStyle to="/ticket" style={{ textDecoration: 'none' }}>
+        <BottomContent>예매</BottomContent>
+      </LinkStyle>
+      <LinkStyle to="/" style={{ textDecoration: 'none' }}>
+        <BottomContent>스토어</BottomContent>
+      </LinkStyle>
+      <LinkStyle to="/" style={{ textDecoration: 'none' }}>
+        <BottomContent>이벤트</BottomContent>
+      </LinkStyle>
       <RightBlock>
         <ColumnLine />
         <HeaderInput type="text" />
@@ -23,6 +30,11 @@ const ScrollTop = () => {
 const ScrollTopBlock = styled.div`
   display: flex;
   width: 1000px;
+`;
+
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 const RightBlock = styled.div`
