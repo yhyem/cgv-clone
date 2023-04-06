@@ -34,6 +34,7 @@ const ScrollBottom = () => {
 };
 
 const ScrollBottomBlock = styled.div`
+  z-index: 1;
   width: 100%;
   position: fixed;
   background: linear-gradient(45deg, #d74256, #ef632f);
