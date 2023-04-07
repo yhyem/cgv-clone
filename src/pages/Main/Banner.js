@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import arrowRight from '../../assets/images/arrowRight.png';
+
 const Banner = () => {
   return (
     <BannerBlock>
@@ -10,6 +12,10 @@ const Banner = () => {
         <Title>더 퍼스트 슬램덩크</Title>
         <Content>"슬램덩크 극장판"</Content>
         <Content>만족도 MAX! 예매로 확인 ▶</Content>
+        <DetailButton>
+          상세보기
+          <ArrowImg src={arrowRight} />
+        </DetailButton>
       </WrapContent>
     </BannerBlock>
   );
@@ -51,6 +57,21 @@ const Content = styled.div`
   color: white;
   font-size: 20px;
   font-weight: bold;
+`;
+
+const DetailButton = styled.div`
+  display: flex;
+  align-items: center;
+  width: 80px;
+  padding: 5px 10px 5px 18px;
+  background-color: #d4cecd;
+  border-radius: 20px;
+  margin-top: 15px;
+`;
+
+const ArrowImg = styled.img`
+  padding-left: 10px;
+  height: 15px;
 `;
 
 export default Banner;
