@@ -1,9 +1,15 @@
-import styled from 'styled-components';
+import { useState } from 'react';
 
 import Banner from './Banner';
+import Ranking from './Ranking';
 
 const Main = () => {
-  return <Banner />;
+  return (
+    <>
+      <Banner />
+      <Ranking />
+    </>
+  );
 };
 
 export default Main;
