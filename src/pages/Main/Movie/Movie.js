@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import eggGold from '../../assets/images/eggGold.png';
+import eggGold from '../../../assets/images/eggGold.png';
 
 const Movie = props => {
   const { title, image, percent, rate, rank } = props.data;

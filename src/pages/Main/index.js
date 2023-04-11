@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 import Banner from './Banner';
-import Ranking from './Ranking';
-import EventList from './EventList';
+import Ranking from './Movie/Ranking';
+import EventList from './Event/EventList';
+import SpecialList from './Special/SpecialList';
 
 const Main = () => {
   return (
@@ -10,6 +11,7 @@ const Main = () => {
       <Banner />
       <Ranking />
       <EventList />
+      <SpecialList />
     </>
   );
 };

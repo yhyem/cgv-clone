@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import Event from './Event';
-import event1 from '../../assets/images/event1.jpeg';
-import event2 from '../../assets/images/event2.jpeg';
-import event3 from '../../assets/images/event3.jpeg';
+import event1 from '../../../assets/images/event1.jpeg';
+import event2 from '../../../assets/images/event2.jpeg';
+import event3 from '../../../assets/images/event3.jpeg';
 
 const EventList = () => {
   const EventData = [

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Movie from './Movie';
-import mokupImage from '../../assets/images/mokup_image.jpeg';
+import mokupImage from '../../../assets/images/mokup_image.jpeg';
 const List = () => {
   const MovieList = [
     { title: '존 윅 4', image: mokupImage, percent: '99%', rate: '39.5%', rank: 1 },
