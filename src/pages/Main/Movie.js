@@ -2,10 +2,21 @@ import styled from 'styled-components';
 import eggGold from '../../assets/images/eggGold.png';
 
 const Movie = props => {
-  const { title, image, percent, rate } = props.data;
+  const { title, image, percent, rate, rank } = props.data;
   return (
     <MovieBlock>
-      <MoviePoster src={image} />
+      <WrapPoster>
+        <PosterStyle>
+          <RankingFont>{rank}</RankingFont>
+          <HoverButton color="#ffffff" font="#848484">
+            상세보기
+          </HoverButton>
+          <HoverButton color="#FB4357" font="#ffffff">
+            예매하기
+          </HoverButton>
+        </PosterStyle>
+        <MoviePoster src={image} />
+      </WrapPoster>
       <MovieTitle> {title}</MovieTitle>
       <WrapMovieContent>
         <MovieLeftContent>
@@ -22,16 +33,69 @@ const MovieBlock = styled.div`
   text-align: center;
 `;
 
+const WrapPoster = styled.div`
+  position: relative;
+`;
+
+const PosterStyle = styled.div`
+  position: absolute;
+  width: 170px;
+  height: 250px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, rgba(20, 20, 20, 0) 70%, rgba(20, 20, 20, 1) 100%);
+
+  &:hover {
+    background: #00000090;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & > div {
+      display: none;
+    }
+
+    & > button {
+      display: block;
+    }
+  }
+`;
+
+const HoverButton = styled.button`
+  margin: 3px auto;
+  width: 130px;
+  height: 30px;
+  background: ${props => props.color};
+  color: ${props => props.font};
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  display: none;
+  &:hover {
+    opacity: 80%;
+  }
+`;
+
+const RankingFont = styled.div`
+  position: absolute;
+  margin-left: 10px;
+  bottom: -11px;
+  color: white;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 50px;
+`;
+
 const MoviePoster = styled.img`
-  width: 150px;
-  height: 230px;
-  background: white;
+  margin-right: 30px;
+  width: 170px;
+  height: 250px;
   border-radius: 10px;
 `;
 
 const MovieTitle = styled.div`
   margin-top: 14px;
   font-size: 18px;
+  font-weight: bold;
   color: #222;
 `;
 
