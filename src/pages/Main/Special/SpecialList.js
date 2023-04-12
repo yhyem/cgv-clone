@@ -5,17 +5,26 @@ import special2 from '../../../assets/images/special2.png';
 import special3 from '../../../assets/images/special3.png';
 import special4 from '../../../assets/images/special4.png';
 
+import Special from './Special';
+
 const SpecialList = () => {
   const SpecialData = [
-    { title: 'SUITE CINEMA', image: special1, hastag: '#호텔 컨셉의 프리미어관' },
-    { title: 'CINE & LIVINGROOM', image: special2, hastag: '#신개념 소셜 상영관' },
-    { title: '4DX', image: special3, hastag: '#모션시트 #오감체험' },
-    { title: 'CINE de CHEF', image: special4, hastag: '#쉐프가 있는 영화관' },
+    { title: 'SUITE CINEMA', image: special1, hashtag: '#호텔 컨셉의 프리미어관' },
+    { title: 'CINE & LIVINGROOM', image: special2, hashtag: '#신개념 소셜 상영관' },
+    { title: '4DX', image: special3, hashtag: '#모션시트 #오감체험' },
+    { title: 'CINE de CHEF', image: special4, hashtag: '#쉐프가 있는 영화관' },
   ];
   return (
     <SpecialBlock>
       <Title>특별관</Title>
-      <WrapEvent></WrapEvent>
+      <WrapEvent>
+        <EventImage src={special1} />
+        <WrapList>
+          {SpecialData.map((data, index) => (
+            <Special data={data} key={index}></Special>
+          ))}
+        </WrapList>
+      </WrapEvent>
     </SpecialBlock>
   );
 };
@@ -29,6 +38,17 @@ const SpecialBlock = styled.div`
 
 const WrapEvent = styled.div`
   display: flex;
+  justify-content: space-between;
+`;
+
+const EventImage = styled.img`
+  width: 500px;
+  border-radius: 10px;
+  margin-right: 20px;
+`;
+
+const WrapList = styled.div`
+  display: block;
 `;
 
 const Title = styled.div`
