@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import special1 from '../../../assets/images/special1.png';
 import special2 from '../../../assets/images/special2.png';
@@ -8,6 +9,9 @@ import special4 from '../../../assets/images/special4.png';
 import Special from './Special';
 
 const SpecialList = () => {
+  const [isListHover, setIsListHover] = useState(special1);
+  console.log(isListHover);
+
   const SpecialData = [
     { title: 'SUITE CINEMA', image: special1, hashtag: '#호텔 컨셉의 프리미어관' },
     { title: 'CINE & LIVINGROOM', image: special2, hashtag: '#신개념 소셜 상영관' },
@@ -18,10 +22,10 @@ const SpecialList = () => {
     <SpecialBlock>
       <Title>특별관</Title>
       <WrapEvent>
-        <EventImage src={special1} />
+        <EventImage src={isListHover} />
         <WrapList>
           {SpecialData.map((data, index) => (
-            <Special data={data} key={index}></Special>
+            <Special data={data} key={index} hover={setIsListHover}></Special>
           ))}
         </WrapList>
       </WrapEvent>

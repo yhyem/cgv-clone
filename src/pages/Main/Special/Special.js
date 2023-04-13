@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Special = props => {
-  const { title, hashtag } = props.data;
+  const { title, hashtag, image } = props.data;
   return (
     <>
-      <WrapContent>
+      <WrapContent onMouseOver={() => props.hover(image)}>
         <Title>{title}</Title>
         <HashTag>{hashtag}</HashTag>
       </WrapContent>
@@ -14,10 +14,19 @@ const Special = props => {
 
 const WrapContent = styled.div`
   display: flex;
-  width: 450px;
+  width: 400px;
   height: 70px;
   border-top: 1px solid #f4f4f4;
   border-bottom: 1px solid #f4f4f4;
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  padding: 0 20px;
+
+  &:hover {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-weight: bold;
+  }
 `;
 
 const Title = styled.div`
@@ -29,7 +38,6 @@ const Title = styled.div`
 const HashTag = styled.div`
   height: 35px;
   margin-left: auto;
-  margin-right: 30px;
   font-size: 14px;
   color: #676767;
   font-weight: bold;
