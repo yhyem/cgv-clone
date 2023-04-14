@@ -1,11 +1,19 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+
+import Banner from './Banner';
+import Ranking from './Movie/Ranking';
+import EventList from './Event/EventList';
+import SpecialList from './Special/SpecialList';
 
 const Main = () => {
-  return <MainBlock>메인페이지입니다.</MainBlock>;
+  return (
+    <>
+      <Banner />
+      <Ranking />
+      <EventList />
+      <SpecialList />
+    </>
+  );
 };
-
-const MainBlock = styled.div`
-  height: 1000px;
-`;
 
 export default Main;
