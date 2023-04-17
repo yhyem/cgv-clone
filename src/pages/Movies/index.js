@@ -1,7 +1,11 @@
-import React from 'react';
+import List from './List';
 
 const Movies = () => {
-  return <div></div>;
+  return (
+    <>
+      <List />
+    </>
+  );
 };
 
 export default Movies;
