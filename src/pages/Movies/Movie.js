@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import eggGold from '../../assets/images/eggGold.png';
 
 const Movie = props => {
-  const { title, image, percent, rate, rank } = props.data;
+  const { title, image, percent, rate, rank, date } = props.data;
   return (
     <MovieBlock>
-      <RankBlock>No.{rank}</RankBlock>
+      <RankBlock color={rank > 3 ? '#333333' : '#fa4357'}>No.{rank}</RankBlock>
       <WrapPoster>
         <PosterStyle />
         <MoviePoster src={image} />
@@ -15,6 +15,8 @@ const Movie = props => {
         예매율 {rate}
         <ContentImage src={eggGold} />
         {percent}
+        <br />
+        {date} 개봉
       </WrapMovieContent>
       <HoverButton color="#FB4357" font="#ffffff">
         예매하기
@@ -28,7 +30,7 @@ const MovieBlock = styled.div`
 `;
 
 const RankBlock = styled.div`
-  background: #fa4357;
+  background: ${props => props.color};
   color: white;
   text-align: center;
   width: 190px;
