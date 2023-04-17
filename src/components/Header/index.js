@@ -130,6 +130,7 @@ const TicketingButton = styled.div`
   text-align: center;
   font-weight: bold;
   box-shadow: 1px 1px 1px 1px #00000030;
+  z-index: 1;
 `;
 
 const UpButton = styled.button`
@@ -146,6 +147,7 @@ const UpButton = styled.button`
   bottom: 90px;
   right: 150px;
   box-shadow: 1px 1px 1px 1px #00000030;
+  z-index: 1;
 `;
 
 export default Header;
