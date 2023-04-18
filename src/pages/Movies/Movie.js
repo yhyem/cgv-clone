@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import eggGold from '../../assets/images/eggGold.png';
+import { Link } from 'react-router-dom';
 
 const Movie = props => {
   const { title, image, percent, rate, rank, date } = props.data;
   return (
     <MovieBlock>
       <RankBlock color={rank > 3 ? '#333333' : '#fa4357'}>No.{rank}</RankBlock>
-      <WrapPoster>
-        <PosterStyle />
-        <MoviePoster src={image} />
-      </WrapPoster>
+      <Link to="./movies:id">
+        <WrapPoster>
+          <PosterStyle />
+          <MoviePoster src={image} />
+        </WrapPoster>
+      </Link>
       <MovieTitle> {title}</MovieTitle>
       <WrapMovieContent>
         예매율 {rate}
