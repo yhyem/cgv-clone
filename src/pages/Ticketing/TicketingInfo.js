@@ -8,8 +8,12 @@ import Data from './TicketingData.json';
 import TimeTable from './TimeTable';
 
 const TicketingInfo = () => {
-  const [value, onChange] = useState(new Date());
-  console.log(value.toLocaleDateString());
+  const [value, onChange] = useState('');
+  const [region, setRegion] = useState('');
+  const [timeline, setTimeline] = useState('');
+
+  //console.log(value.toLocaleDateString());
+
   return (
     <>
       <CalendarBlock>
@@ -18,22 +22,32 @@ const TicketingInfo = () => {
           <Title>지역/영화관 선택 </Title>
           <WrapRegionList>
             {Data.region.map((data, index) => (
-              <RegionList data={data} key={index} />
+              <RegionList data={data} key={index} select={setRegion} region={region} />
             ))}
           </WrapRegionList>
         </WrapSelection>
         <WrapCalender>
           <Number>STEP2</Number>
           <Title>날짜 선택</Title>
-          <Calendar onChange={onChange} value={value} />
+          {region ? (
+            <Calendar onChange={onChange} value={value} />
+          ) : (
+            <FirstSelect>🍿 영화관을 먼저 선택해주세요.</FirstSelect>
+          )}
         </WrapCalender>
         <WrapSelection>
           <Number>STEP3</Number>
           <Title>시간 선택</Title>
-          <LineBlock />
-          {Data.time.map((data, index) => (
-            <TimeTable data={data} key={index} />
-          ))}
+          {value ? (
+            <>
+              <LineBlock />
+              {Data.time.map((data, index) => (
+                <TimeTable data={data} key={index} timeline={timeline} select={setTimeline} />
+              ))}
+            </>
+          ) : (
+            <DateSelect>📌 날짜를 먼저 선택해주세요.</DateSelect>
+          )}
         </WrapSelection>
       </CalendarBlock>
     </>
@@ -41,7 +55,7 @@ const TicketingInfo = () => {
 };
 
 const CalendarBlock = styled.div`
-  width: 900px;
+  width: 930px;
   display: flex;
   margin: 50px auto;
   box-shadow: 1px 4px 4px 4px #d3d4d4;
@@ -68,11 +82,27 @@ const Title = styled.div`
 
 const WrapCalender = styled.div`
   display: block;
-  margin: 20px auto;
+  padding: 30px;
 
   .react-calendar {
     border: none;
   }
+`;
+
+const FirstSelect = styled.div`
+  text-align: center;
+  width: 350px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 250px;
+`;
+
+const DateSelect = styled.div`
+  text-align: center;
+  width: 200px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 250px;
 `;
 
 const WrapRegionList = styled.div`

@@ -9,7 +9,7 @@ const RegionList = props => {
       📍 {title}
       <WrapRegion>
         {content.map((data, index) => (
-          <Region data={data} key={index} />
+          <Region data={data} key={index} select={props.select} region={props.region} />
         ))}
       </WrapRegion>
     </>
