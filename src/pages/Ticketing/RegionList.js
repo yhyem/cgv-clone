@@ -5,7 +5,8 @@ const RegionList = props => {
   const { title, content } = props.data;
   return (
     <>
-      {title}
+      <LineBlock />
+      📍 {title}
       <WrapRegion>
         {content.map((data, index) => (
           <Region data={data} key={index} />
@@ -15,11 +16,17 @@ const RegionList = props => {
   );
 };
 
+const LineBlock = styled.div`
+  height: 1px;
+  background: #e9ecf0;
+  margin: 15px 0;
+`;
+
 const WrapRegion = styled.div`
   width: 200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 export default RegionList;

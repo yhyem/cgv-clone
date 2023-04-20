@@ -2,10 +2,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Calendar from 'react-calendar';
 import RegionList from './RegionList';
-import Region from './Region';
 
 import 'react-calendar/dist/Calendar.css'; // css import
 import Data from './TicketingData.json';
+import TimeTable from './TimeTable';
 
 const TicketingInfo = () => {
   const [value, onChange] = useState(new Date());
@@ -13,7 +13,7 @@ const TicketingInfo = () => {
   return (
     <>
       <CalendarBlock>
-        <WrapCalender>
+        <WrapSelection>
           <Number>STEP1</Number>
           <Title>지역/영화관 선택 </Title>
           <WrapRegionList>
@@ -21,32 +21,37 @@ const TicketingInfo = () => {
               <RegionList data={data} key={index} />
             ))}
           </WrapRegionList>
-        </WrapCalender>
+        </WrapSelection>
         <WrapCalender>
           <Number>STEP2</Number>
           <Title>날짜 선택</Title>
           <Calendar onChange={onChange} value={value} />
         </WrapCalender>
-        <WrapCalender>
+        <WrapSelection>
           <Number>STEP3</Number>
           <Title>시간 선택</Title>
-          <WrapRegion>
-            {Data.time.map((data, index) => (
-              <Region data={data} key={index} />
-            ))}
-          </WrapRegion>
-        </WrapCalender>
+          <LineBlock />
+          {Data.time.map((data, index) => (
+            <TimeTable data={data} key={index} />
+          ))}
+        </WrapSelection>
       </CalendarBlock>
     </>
   );
 };
 
 const CalendarBlock = styled.div`
-  width: 800px;
+  width: 900px;
   display: flex;
   margin: 50px auto;
   box-shadow: 1px 4px 4px 4px #d3d4d4;
   border-radius: 3px;
+`;
+
+const WrapSelection = styled.div`
+  display: block;
+  padding: 30px;
+  background: #f2f7f7;
 `;
 
 const Number = styled.div`
@@ -64,6 +69,10 @@ const Title = styled.div`
 const WrapCalender = styled.div`
   display: block;
   margin: 20px auto;
+
+  .react-calendar {
+    border: none;
+  }
 `;
 
 const WrapRegionList = styled.div`
@@ -75,15 +84,10 @@ const WrapRegionList = styled.div`
   }
 `;
 
-const WrapRegion = styled.div`
-  width: 200px;
-  background-color: #e9ecf1;
-  border-radius: 5px;
-  text-align: center;
-  width: 98px;
-  height: 30px;
-  line-height: 30px;
-  margin-top: 4px;
+const LineBlock = styled.div`
+  height: 1px;
+  background: #e9ecf0;
+  margin: 15px 0;
 `;
 
 export default TicketingInfo;
