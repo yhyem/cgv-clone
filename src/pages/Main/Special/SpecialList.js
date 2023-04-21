@@ -10,7 +10,6 @@ import Special from './Special';
 
 const SpecialList = () => {
   const [isListHover, setIsListHover] = useState(special1);
-  console.log(isListHover);
 
   const SpecialData = [
     { title: 'SUITE CINEMA', image: special1, hashtag: '#호텔 컨셉의 프리미어관' },

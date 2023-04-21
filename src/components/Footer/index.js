@@ -24,8 +24,8 @@ const Footer = () => {
     <FooterBlock>
       <WrapFooter>
         <WrapFooterContent>
-          {FooterInfo.category.map(data => (
-            <FooterContent>{data}</FooterContent>
+          {FooterInfo.category.map((data, index) => (
+            <FooterContent key={index}>{data}</FooterContent>
           ))}
         </WrapFooterContent>
         <LineBlock />
