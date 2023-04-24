@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css'; // css import
 import Data from './TicketingData.json';
 import TimeTable from './TimeTable';
 
-const TicketingInfo = () => {
+const TicketingInfo = props => {
   const [value, onChange] = useState('');
   const [region, setRegion] = useState('');
   const [timeline, setTimeline] = useState('');
@@ -21,9 +21,13 @@ const TicketingInfo = () => {
           <Number>STEP1</Number>
           <Title>지역/영화관 선택 </Title>
           <WrapRegionList>
-            {Data.region.map((data, index) => (
-              <RegionList data={data} key={index} select={setRegion} region={region} />
-            ))}
+            {props.select ? (
+              Data.region.map((data, index) => (
+                <RegionList data={data} key={index} select={setRegion} region={region} />
+              ))
+            ) : (
+              <DateSelect>🎬 영화를 먼저 선택해주세요.</DateSelect>
+            )}
           </WrapRegionList>
         </WrapSelection>
         <WrapCalender>
