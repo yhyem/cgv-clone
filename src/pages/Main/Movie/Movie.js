@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import eggGold from '../../../assets/images/eggGold.png';
 
+const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+
 const Movie = props => {
-  const { title, image, percent, rate, rank } = props.data;
+  const { title, poster_path, vote_average } = props.data;
   return (
     <MovieBlock>
       <WrapPoster>
         <PosterStyle>
-          <RankingFont>{rank}</RankingFont>
+          <RankingFont>{props.index + 1}</RankingFont>
           <HoverButton color="#ffffff" font="#848484">
             상세보기
           </HoverButton>
@@ -15,15 +17,15 @@ const Movie = props => {
             예매하기
           </HoverButton>
         </PosterStyle>
-        <MoviePoster src={image} />
+        <MoviePoster src={IMAGE_URL + poster_path} />
       </WrapPoster>
       <MovieTitle> {title}</MovieTitle>
       <WrapMovieContent>
         <MovieLeftContent>
           <ContentImage src={eggGold} />
-          {percent}
+          {vote_average / 2}%
         </MovieLeftContent>
-        <MovieRightContent>{rate}</MovieRightContent>
+        <MovieRightContent>{vote_average}%</MovieRightContent>
       </WrapMovieContent>
     </MovieBlock>
   );
@@ -31,6 +33,7 @@ const Movie = props => {
 const MovieBlock = styled.div`
   display: block;
   text-align: center;
+  margin-right: 30px;
 `;
 
 const WrapPoster = styled.div`
@@ -86,7 +89,6 @@ const RankingFont = styled.div`
 `;
 
 const MoviePoster = styled.img`
-  margin-right: 30px;
   width: 170px;
   height: 250px;
   border-radius: 10px;
@@ -97,6 +99,10 @@ const MovieTitle = styled.div`
   font-size: 18px;
   font-weight: bold;
   color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 170px;
 `;
 
 const WrapMovieContent = styled.div`

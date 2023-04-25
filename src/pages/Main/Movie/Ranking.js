@@ -8,11 +8,15 @@ const Ranking = () => {
   return (
     <RankingBlock>
       <WrapTitle>
-        <ClickedButton onClick={() => setIsChecked(false)}>무비차트</ClickedButton>
+        <MovieButton onClick={() => setIsChecked(false)} check={isChecked}>
+          무비차트
+        </MovieButton>
         <ColumnLine />
-        <ClickedButton onClick={() => setIsChecked(true)}>상영예정작</ClickedButton>
+        <UpComingButton onClick={() => setIsChecked(true)} check={isChecked}>
+          상영예정작
+        </UpComingButton>
       </WrapTitle>
-      <List />
+      {isChecked ? <List select={'upcoming'} /> : <List select={'popular'} />}
     </RankingBlock>
   );
 };
@@ -35,12 +39,21 @@ const ColumnLine = styled.div`
   background: #d8d8d8;
 `;
 
-const ClickedButton = styled.button`
+const MovieButton = styled.button`
   border: none;
   background: none;
   font-size: 25px;
-  color: #666;
-  font-weight: 400;
+  color: ${props => (props.check ? '#666' : '#000000')};
+  font-weight: ${props => (props.check ? '400' : '700')};
+  cursor: pointer;
+`;
+
+const UpComingButton = styled.button`
+  border: none;
+  background: none;
+  font-size: 25px;
+  color: ${props => (props.check ? '#000000' : '#666')};
+  font-weight: ${props => (props.check ? '700' : '400')};
   cursor: pointer;
 `;
 
