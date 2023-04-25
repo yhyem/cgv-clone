@@ -52,7 +52,9 @@ const Header = () => {
         <RedLineBlock />
       ) : (
         <>
-          <TicketingButton>예매하기</TicketingButton>
+          <Link to="/ticket">
+            <TicketingButton onClick={() => window.scrollTo(0, 0)}>예매하기</TicketingButton>
+          </Link>
           <UpButton onClick={() => window.scrollTo(0, 0)}></UpButton>
         </>
       )}

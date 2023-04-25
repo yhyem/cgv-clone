@@ -21,9 +21,11 @@ const Movie = props => {
         <br />
         {date} 개봉
       </WrapMovieContent>
-      <HoverButton color="#FB4357" font="#ffffff">
-        예매하기
-      </HoverButton>
+      <Link to="/ticket">
+        <HoverButton color="#FB4357" font="#ffffff">
+          예매하기
+        </HoverButton>
+      </Link>
     </MovieBlock>
   );
 };

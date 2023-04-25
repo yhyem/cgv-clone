@@ -16,12 +16,6 @@ const ScrollBottom = () => {
         <LinkStyle to="/ticket" style={{ textDecoration: 'none' }}>
           <BottomContent>예매</BottomContent>
         </LinkStyle>
-        <LinkStyle to="/" style={{ textDecoration: 'none' }}>
-          <BottomContent>스토어</BottomContent>
-        </LinkStyle>
-        <LinkStyle to="/" style={{ textDecoration: 'none' }}>
-          <BottomContent>이벤트</BottomContent>
-        </LinkStyle>
         <RightBlock>
           <ColumnLine />
           <HeaderInput />

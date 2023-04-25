@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MovieInfo = props => {
@@ -21,13 +22,15 @@ const MovieInfo = props => {
             장르 : {genre} / 기본 : {basic}
             <br />
             개봉 : {date}
-          </WrapContent>{' '}
+          </WrapContent>
           <ButtonBlock color="#ffffff" font="#000000" border="#000000">
             프리에그
           </ButtonBlock>
-          <ButtonBlock color="#FB4357" font="#ffffff" border="#FB4357">
-            예매하기
-          </ButtonBlock>
+          <Link to="/ticket">
+            <ButtonBlock color="#FB4357" font="#ffffff" border="#FB4357">
+              예매하기
+            </ButtonBlock>
+          </Link>
         </WrapInfo>
       </WrapInfoBlock>
     </>
