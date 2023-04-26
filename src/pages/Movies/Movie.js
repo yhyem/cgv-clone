@@ -2,24 +2,27 @@ import styled from 'styled-components';
 import eggGold from '../../assets/images/eggGold.png';
 import { Link } from 'react-router-dom';
 
+const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+
 const Movie = props => {
-  const { title, image, percent, rate, rank, date } = props.data;
+  const { title, id, poster_path, vote_average, vote_count, release_date } = props.data;
+
   return (
     <MovieBlock>
-      <RankBlock color={rank > 3 ? '#333333' : '#fa4357'}>No.{rank}</RankBlock>
-      <Link to="./movies:id">
+      <RankBlock color={props.rank + 1 > 3 ? '#333333' : '#fa4357'}>No.{props.rank + 1}</RankBlock>
+      <Link to={`/movies/${id}`}>
         <WrapPoster>
           <PosterStyle />
-          <MoviePoster src={image} />
+          <MoviePoster src={IMAGE_URL + poster_path} />
         </WrapPoster>
       </Link>
       <MovieTitle> {title}</MovieTitle>
       <WrapMovieContent>
-        예매율 {rate}
+        예매율 {vote_average}%
         <ContentImage src={eggGold} />
-        {percent}
+        {vote_count}
         <br />
-        {date} 개봉
+        {release_date} 개봉
       </WrapMovieContent>
       <Link to="/ticket">
         <HoverButton color="#FB4357" font="#ffffff">
@@ -64,6 +67,10 @@ const MoviePoster = styled.img`
 `;
 
 const MovieTitle = styled.div`
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 14px;
   font-size: 18px;
   font-weight: bold;
