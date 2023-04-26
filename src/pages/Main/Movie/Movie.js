@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 import eggGold from '../../../assets/images/eggGold.png';
+import { Link } from 'react-router-dom';
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const Movie = props => {
-  const { title, poster_path, vote_average } = props.data;
+  const { title, poster_path, vote_average, id } = props.data;
+  console.log(props.data);
   return (
     <MovieBlock>
       <WrapPoster>
         <PosterStyle>
           <RankingFont>{props.index + 1}</RankingFont>
           <HoverButton color="#ffffff" font="#848484">
-            상세보기
+            <LinkStyle to={`/movies/${id}`} font="#848484">
+              상세보기
+            </LinkStyle>
           </HoverButton>
           <HoverButton color="#FB4357" font="#ffffff">
             예매하기
@@ -60,6 +64,11 @@ const PosterStyle = styled.div`
       display: block;
     }
   }
+`;
+
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: ${props => props.font};
 `;
 
 const HoverButton = styled.button`
