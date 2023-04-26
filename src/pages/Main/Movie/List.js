@@ -24,8 +24,6 @@ const List = props => {
     fetchData();
   }, [props.select]);
 
-  console.log(movies);
-
   const MovieList = [
     { title: '존 윅 4', image: mokupImage, percent: '99%', rate: '39.5%', rank: 1 },
     { title: '더 퍼스트 슬램덩크', image: mokupImage, percent: '98%', rate: '30.5%', rank: 2 },

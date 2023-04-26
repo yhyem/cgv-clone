@@ -2,9 +2,18 @@ import styled from 'styled-components';
 
 const Special = props => {
   const { title, hashtag, image } = props.data;
+  const ChangeImgage = () => {
+    props.hover(image);
+    props.listHover(title);
+  };
+
   return (
     <>
-      <WrapContent onMouseOver={() => props.hover(image)}>
+      <WrapContent
+        onMouseOver={ChangeImgage}
+        border={props.list === title ? '#000000' : 'none'}
+        weight={props.list === title ? 'bold' : 'normal'}
+      >
         <Title>{title}</Title>
         <HashTag>{hashtag}</HashTag>
       </WrapContent>
@@ -21,12 +30,9 @@ const WrapContent = styled.div`
   border-right: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
   padding: 0 20px;
-
-  &:hover {
-    border: 1px solid #000000;
-    border-radius: 10px;
-    font-weight: bold;
-  }
+  border: 1px solid ${props => props.border};
+  font-weight: ${props => props.weight};
+  border-radius: 10px;
 `;
 
 const Title = styled.div`

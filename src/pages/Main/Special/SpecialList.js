@@ -10,6 +10,7 @@ import Special from './Special';
 
 const SpecialList = () => {
   const [isListHover, setIsListHover] = useState(special1);
+  const [listTitle, setListTitle] = useState('SUITE CINEMA');
 
   const SpecialData = [
     { title: 'SUITE CINEMA', image: special1, hashtag: '#호텔 컨셉의 프리미어관' },
@@ -24,7 +25,7 @@ const SpecialList = () => {
         <EventImage src={isListHover} />
         <WrapList>
           {SpecialData.map((data, index) => (
-            <Special data={data} key={index} hover={setIsListHover}></Special>
+            <Special data={data} key={index} hover={setIsListHover} list={listTitle} listHover={setListTitle}></Special>
           ))}
         </WrapList>
       </WrapEvent>
