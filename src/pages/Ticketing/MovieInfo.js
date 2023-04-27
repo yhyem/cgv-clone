@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 const MovieInfo = props => {
-  const { title, image, age, star } = props.data;
+  const { title, origin, image, average } = props.data;
+  console.log(props.data);
   return (
     <>
       <InfoBlock>
         <MoviePoster src={image} />
         <InfoContent>
           <Title>{title}</Title>
-          <Age>{age}</Age>
-          <Star>{star}</Star>
+          <Age>{origin}</Age>
+          <Star>⭐️ {average}</Star>
         </InfoContent>
       </InfoBlock>
     </>
@@ -35,6 +36,10 @@ const InfoContent = styled.div`
 const Title = styled.div`
   font-size: 20px;
   font-weight: 900;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Age = styled.div`
