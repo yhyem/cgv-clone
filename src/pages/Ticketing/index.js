@@ -16,10 +16,10 @@ const Ticketing = () => {
   const selectedMovie = location.state;
 
   const MovieData = {
-    title: selectedMovie.title || select.title,
-    image: IMAGE_URL + selectedMovie.poster_path || select.image,
-    average: selectedMovie.vote_average || select.average,
-    origin: selectedMovie.original_title || select.origin,
+    title: selectedMovie ? selectedMovie.title : select.title,
+    image: selectedMovie ? IMAGE_URL + selectedMovie.poster_path : select.image,
+    average: selectedMovie ? selectedMovie.vote_average : select.average,
+    origin: selectedMovie ? selectedMovie.original_title : select.origin,
   };
 
   return (
