@@ -6,19 +6,21 @@ const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const Movie = props => {
   const { title, poster_path, vote_average, id } = props.data;
-  console.log(props.data);
+
   return (
     <MovieBlock>
       <WrapPoster>
         <PosterStyle>
           <RankingFont>{props.index + 1}</RankingFont>
-          <HoverButton color="#ffffff" font="#848484">
+          <HoverButton color="#ffffff">
             <LinkStyle to={`/movies/${id}`} font="#848484">
               상세보기
             </LinkStyle>
           </HoverButton>
-          <HoverButton color="#FB4357" font="#ffffff">
-            예매하기
+          <HoverButton color="#FB4357">
+            <LinkStyle to={`/ticket`} state={props.data} font="#ffffff">
+              예매하기
+            </LinkStyle>
           </HoverButton>
         </PosterStyle>
         <MoviePoster src={IMAGE_URL + poster_path} />

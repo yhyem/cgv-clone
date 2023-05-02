@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const MovieInfo = props => {
   const { title, origin, image, average } = props.data;
-  console.log(props.data);
   return (
     <>
       <InfoBlock>
