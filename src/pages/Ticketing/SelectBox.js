@@ -34,7 +34,7 @@ const SelectBox = props => {
   return (
     <WrapSelectBox>
       <form action="#">
-        <SelectBoxBlock name="MovieBox" id="MovieBox" onChange={e => selectOption(e)} value={props.select}>
+        <SelectBoxBlock name="MovieBox" id="MovieBox" onChange={e => selectOption(e)}>
           <option value="" hidden>
             영화 선택하기
           </option>

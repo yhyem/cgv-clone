@@ -21,7 +21,7 @@ const TicketingInfo = props => {
           <Number>STEP1</Number>
           <Title>지역/영화관 선택 </Title>
           <WrapRegionList>
-            {props.select ? (
+            {props.select.title !== '영화를 선택해주세요.' ? (
               Data.region.map((data, index) => (
                 <RegionList data={data} key={index} select={setRegion} region={region} />
               ))

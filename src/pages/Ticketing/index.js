@@ -6,7 +6,7 @@ import TicketingInfo from './TicketingInfo';
 import SelectBox from './SelectBox';
 
 const Ticketing = () => {
-  const [select, setSelect] = useState({ title: '🎬 영화를 선택해주세요.', image: MockupImage, average: '' });
+  const [select, setSelect] = useState({ title: '영화를 선택해주세요.', image: MockupImage, average: '' });
 
   const MovieData = {
     title: select.title,
