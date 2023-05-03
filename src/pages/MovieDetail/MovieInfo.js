@@ -1,32 +1,46 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+
 const MovieInfo = props => {
-  const { title, image, subtitle, rate, percent, director, actor, genre, basic, date } = props.info;
+  const {
+    title,
+    poster_path,
+    original_title,
+    tagline,
+    vote_average,
+    genres,
+    production_countries,
+    runtime,
+    release_date,
+  } = props.info;
+
   return (
     <>
       <WrapInfoBlock>
-        <MoviePoster src={image} />
+        <MoviePoster src={IMAGE_URL + poster_path} />
         <WrapInfo>
           <Title>{title}</Title>
-          <SubTitle>{subtitle}</SubTitle>
+          <SubTitle>{original_title}</SubTitle>
           <RateBlock>
-            예매율<TicketRate>{rate}</TicketRate>
+            예매율<TicketRate>{vote_average}</TicketRate>%
             <ColumnBlock />
-            <TicketRate>{percent}</TicketRate>
+            <TicketRate>{tagline}</TicketRate>
           </RateBlock>
           <LineBlock />
           <WrapContent>
-            감독 : {director} / 배우 : {actor}
+            감독 : / 배우 :
             <br />
-            장르 : {genre} / 기본 : {basic}
+            장르 : {genres && genres[0].name} / 기본 : {production_countries && production_countries[0].name}, {runtime}
+            분
             <br />
-            개봉 : {date}
+            개봉 : {release_date}
           </WrapContent>
           <ButtonBlock color="#ffffff" font="#000000" border="#000000">
             프리에그
           </ButtonBlock>
-          <Link to="/ticket">
+          <Link to={`/ticket`} state={props.info}>
             <ButtonBlock color="#FB4357" font="#ffffff" border="#FB4357">
               예매하기
             </ButtonBlock>

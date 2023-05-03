@@ -1,23 +1,46 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const apiKey = process.env.REACT_APP_API_KEY;
+const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const SelectBox = props => {
-  const Movies = ['슈퍼마리오', '으어어', '으아아아'];
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR`);
+        setMovies(response.data.results);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const selectOption = e => {
+    const movieData = JSON.parse(e.target.value);
+
+    props.onSelect({
+      title: movieData.title,
+      image: IMAGE_URL + movieData.poster_path,
+      average: movieData.vote_average / 2,
+      origin: movieData.original_title,
+    });
+  };
 
   return (
     <WrapSelectBox>
       <form action="#">
-        <SelectBoxBlock
-          name="MovieBox"
-          id="MovieBox"
-          onChange={e => props.onSelect(e.target.value)}
-          value={props.select}
-        >
+        <SelectBoxBlock name="MovieBox" id="MovieBox" onChange={e => selectOption(e)}>
           <option value="" hidden>
             영화 선택하기
           </option>
-          {Movies.map((data, index) => (
-            <option value={data} key={index}>
-              {data}
+          {movies.map((data, index) => (
+            <option value={JSON.stringify(data)} key={index}>
+              {data.title}
             </option>
           ))}
         </SelectBoxBlock>
