@@ -16,7 +16,6 @@ const MovieDetail = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=ko-KR`);
-        console.log(response);
         setMovie(response.data);
       } catch (e) {
         console.log(e);
@@ -24,7 +23,6 @@ const MovieDetail = () => {
     };
     fetchData();
   }, [id]);
-  console.log(movie);
 
   return (
     <>

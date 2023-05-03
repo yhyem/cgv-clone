@@ -24,7 +24,7 @@ const Movie = props => {
         <br />
         {release_date} 개봉
       </WrapMovieContent>
-      <Link to="/ticket">
+      <Link to={`/ticket`} state={props.data}>
         <HoverButton color="#FB4357" font="#ffffff">
           예매하기
         </HoverButton>

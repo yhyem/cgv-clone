@@ -40,7 +40,7 @@ const MovieInfo = props => {
           <ButtonBlock color="#ffffff" font="#000000" border="#000000">
             프리에그
           </ButtonBlock>
-          <Link to="/ticket">
+          <Link to={`/ticket`} state={props.info}>
             <ButtonBlock color="#FB4357" font="#ffffff" border="#FB4357">
               예매하기
             </ButtonBlock>

@@ -20,8 +20,6 @@ const List = () => {
     fetchData();
   }, []);
 
-  console.log(list);
-
   return (
     <>
       <WrapMovieList>
