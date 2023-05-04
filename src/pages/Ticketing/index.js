@@ -5,6 +5,7 @@ import MovieInfo from './MovieInfo';
 import MockupImage from '../../assets/images/noImg.jpg';
 import TicketingInfo from './TicketingInfo';
 import SelectBox from './SelectBox';
+import TicketingButton from './TicketingButton';
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -26,11 +27,18 @@ const Ticketing = () => {
     origin: select.origin,
   };
 
+  const [ticket, setTicekt] = useState({
+    region: '',
+    time: '',
+    timeline: '',
+  });
+
   return (
     <>
       <MovieInfo data={MovieData} />
       <SelectBox onSelect={setSelect} select={select} />
-      <TicketingInfo select={select} />
+      <TicketingInfo select={select} onSetTicket={setTicekt} />
+      <TicketingButton ticekt={ticket} />
     </>
   );
 };

@@ -8,9 +8,17 @@ import Data from './TicketingData.json';
 import TimeTable from './TimeTable';
 
 const TicketingInfo = props => {
-  const [value, onChange] = useState('');
   const [region, setRegion] = useState('');
+  const [value, onChange] = useState('');
   const [timeline, setTimeline] = useState('');
+
+  const clickOption = () => {
+    props.onSetTicket({
+      region: region,
+      time: value,
+      timeline: timeline,
+    });
+  };
 
   //console.log(value.toLocaleDateString());
 
