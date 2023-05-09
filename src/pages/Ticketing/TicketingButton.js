@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const TicketingButton = props => {
   return (
-    <TicketingButtonBlock color={props.color} onClick={props.submit}>
-      예매하기
-    </TicketingButtonBlock>
+    <Link to="/complete" style={{ textDecoration: 'none' }}>
+      <TicketingButtonBlock color={props.color} onClick={props.submit}>
+        예매하기
+      </TicketingButtonBlock>
+    </Link>
   );
 };
 

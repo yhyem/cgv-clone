@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import Movies from './pages/Movies';
 import MoviesDetail from './pages/MovieDetail';
 import Ticketing from './pages/Ticketing';
+import Complete from './pages/Complete';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MoviesDetail />} />
         <Route path="/ticket" element={<Ticketing />} />
+        <Route path="/complete" element={<Complete />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />

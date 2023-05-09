@@ -15,10 +15,16 @@ const TicketingInfo = props => {
   const [isFilled, seIsFilled] = useState(false);
 
   const clickOption = () => {
-    localStorage.setItem('ticket', JSON.stringify({ region: region, time: value, timeline: timeline }));
+    localStorage.setItem(
+      'ticket',
+      JSON.stringify({
+        title: props.select.title,
+        region: region,
+        time: value.toLocaleDateString(),
+        timeline: timeline,
+      }),
+    );
   };
-
-  //console.log(value.toLocaleDateString());
 
   return (
     <>
