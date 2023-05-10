@@ -14,6 +14,7 @@ const Success = () => {
       <SuccessBlock>
         <Title>예매 완료</Title>
         <WrapContent>
+          <Poster src={ticketData.image} />
           <Content>제목 : {ticketData.title}</Content>
           <Content>위치 : {ticketData.region}</Content>
           <Content>날짜 : {ticketData.time}</Content>
@@ -50,9 +51,17 @@ const SuccessBlock = styled.div`
   margin: 100px;
 `;
 
+const Poster = styled.img`
+  display: flex;
+  margin: 30px auto;
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+`;
+
 const Title = styled.div`
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
 `;

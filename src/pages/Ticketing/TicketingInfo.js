@@ -18,6 +18,7 @@ const TicketingInfo = props => {
     localStorage.setItem(
       'ticket',
       JSON.stringify({
+        image: props.select.image,
         title: props.select.title,
         region: region,
         time: value.toLocaleDateString(),
