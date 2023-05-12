@@ -8,26 +8,28 @@ const MovieContent = props => {
   const { overview } = props.info;
   return (
     <MovieContentBlock>
+      <Content>{overview}</Content>
+      <CenterImageBlock src={AD3} alt="AD3" />
       <WrapContent>
-        <Content>{overview}</Content>
-        <CenterImageBlock src={AD3} alt="AD3" />
         <Title>트레일러</Title>
-        <Title>스틸컷</Title>
-        <WrapStillCut>
-          <StillCut stillCut={props.stillCut} />
-        </WrapStillCut>
       </WrapContent>
-      {/* <SideImageBlock>
+      <WrapContent>
+        <Title>스틸컷</Title>
+      </WrapContent>
+      <StillCut stillCut={props.stillCut} />
+      <SideImageBlock>
         <SideImage src={AD1} alt="AD1" />
         <SideImage src={AD2} alt="AD2" />
-      </SideImageBlock> */}
+      </SideImageBlock>
     </MovieContentBlock>
   );
 };
 
 const MovieContentBlock = styled.div``;
 
-const WrapContent = styled.div``;
+const WrapContent = styled.div`
+  display: flex;
+`;
 
 const Content = styled.div`
   white-space: pre-wrap;
@@ -36,6 +38,7 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
+  width: 100%;
   background-color: #f6f6f6;
   height: 39px;
   float: left;
@@ -44,12 +47,6 @@ const Title = styled.div`
   color: #333333;
   font-size: 13px;
   font-weight: 500;
-`;
-
-const WrapStillCut = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: auto;
 `;
 
 const CenterImageBlock = styled.img`
