@@ -6,13 +6,26 @@ import RegionList from './RegionList';
 import 'react-calendar/dist/Calendar.css'; // css import
 import Data from './TicketingData.json';
 import TimeTable from './TimeTable';
+import TicketingButton from './TicketingButton';
 
 const TicketingInfo = props => {
-  const [value, onChange] = useState('');
   const [region, setRegion] = useState('');
+  const [value, onChange] = useState('');
   const [timeline, setTimeline] = useState('');
+  const [isFilled, seIsFilled] = useState(false);
 
-  //console.log(value.toLocaleDateString());
+  const clickOption = () => {
+    localStorage.setItem(
+      'ticket',
+      JSON.stringify({
+        image: props.select.image,
+        title: props.select.title,
+        region: region,
+        time: value.toLocaleDateString(),
+        timeline: timeline,
+      }),
+    );
+  };
 
   return (
     <>
@@ -46,7 +59,7 @@ const TicketingInfo = props => {
             <>
               <LineBlock />
               {Data.time.map((data, index) => (
-                <TimeTable data={data} key={index} timeline={timeline} select={setTimeline} />
+                <TimeTable data={data} key={index} timeline={timeline} select={setTimeline} onSetFilled={seIsFilled} />
               ))}
             </>
           ) : (
@@ -54,6 +67,7 @@ const TicketingInfo = props => {
           )}
         </WrapSelection>
       </CalendarBlock>
+      <TicketingButton color={isFilled ? '#fb4856, #fe7056' : 'gray, gray'} submit={clickOption} />
     </>
   );
 };

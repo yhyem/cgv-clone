@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logoRed from '../../assets/images/logoRed.png';
 import loginJoin from '../../assets/images/loginJoin.png';
@@ -12,6 +13,8 @@ import ScrollTop from './ScrollTop.js';
 import ScrollBottom from './ScrollBottom.js';
 
 const Header = () => {
+  const location = useLocation();
+
   const [position, setPosition] = useState(0);
   document.addEventListener('scroll', function () {
     const afterPosition = document.documentElement.scrollTop;
@@ -48,7 +51,7 @@ const Header = () => {
       </WrapHeaderBlock>
       <LineBlock />
       <WrapHeaderBottomBlock>{position < 95 ? <ScrollTop /> : <ScrollBottom />}</WrapHeaderBottomBlock>
-      {position < 95 ? (
+      {position < 95 || location.pathname === '/ticket' ? (
         <RedLineBlock />
       ) : (
         <>
