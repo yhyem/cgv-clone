@@ -6,7 +6,14 @@ const TimeTable = props => {
       {props.data === props.timeline ? (
         <ClickedRegion onClick={() => props.select(props.data)}>{props.data}</ClickedRegion>
       ) : (
-        <WrapRegion onClick={() => props.select(props.data)}>{props.data}</WrapRegion>
+        <WrapRegion
+          onClick={() => {
+            props.select(props.data);
+            props.onSetFilled(true);
+          }}
+        >
+          {props.data}
+        </WrapRegion>
       )}
     </>
   );

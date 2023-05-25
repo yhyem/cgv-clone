@@ -16,6 +16,11 @@ const MovieInfo = props => {
     release_date,
   } = props.info;
 
+  const { crew } = props.credit;
+  const director = [];
+
+  crew && crew.map(crews => crews.known_for_department === 'Directing' && director.push(crews.name));
+
   return (
     <>
       <WrapInfoBlock>
@@ -30,7 +35,8 @@ const MovieInfo = props => {
           </RateBlock>
           <LineBlock />
           <WrapContent>
-            감독 : / 배우 :
+            감독 : {director[0]} / 배우 :{' '}
+            {crew && crew.map(crews => (crews.known_for_department === 'Acting' ? crews.name + ' ' : null))}
             <br />
             장르 : {genres && genres[0].name} / 기본 : {production_countries && production_countries[0].name}, {runtime}
             분
