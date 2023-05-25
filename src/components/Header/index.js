@@ -32,7 +32,9 @@ const Header = () => {
           <RightBlock>
             <WrapHeaderImg>
               <HeaderImg src={loginPassword} />
-              <HeaderContent>로그인</HeaderContent>
+              <HeaderContent>
+                <StyledLink to="/login">로그인 </StyledLink>
+              </HeaderContent>
             </WrapHeaderImg>
             <WrapHeaderImg>
               <HeaderImg src={loginJoin} />
@@ -64,6 +66,11 @@ const Header = () => {
     </>
   );
 };
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #757575;
+`;
 
 const WrapHeaderBlock = styled.div`
   display: flex;
