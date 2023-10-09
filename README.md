@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# 화면 정의서 상세기획
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 메인화면
 
-## Available Scripts
+메인페이지 상단 화면
 
-In the project directory, you can run:
+| 번호 | 내용 |
+| --- | --- |
+| 1 | 상단 광고 배너 |
+| 2 | 홈페이지 상단 메뉴 |
+| 3 | 자동 광고 영상 재생 |
+| 4 | 무비차트 버튼 슬라이드 |
+| 4-1 | 마우스 오버시 ‘상세보기’, ‘예매하기’ 버튼 생성 |
+| 5 | 자동 이미지 슬라이드 |
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+메인페이지 하단 화면
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| 번호 | 내용 |
+| --- | --- |
+| 6 | 메뉴 반응형으로 상단고정 처리 |
+| 7 | 마우스 호버시 선택 영화관 변경 |
+| 8 | JSON 데이터로 상품 목록 표시 |
+| 9 | 기능 없는 화면 |
+| 10 | 자동으로 광고 이미지 전환 |
+| 11 | 스크롤시 버튼 생성 |
+| 12 | 클릭시 상단으로 이동 |
 
-### `yarn test`
+### 예매화면
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| 번호 | 내용 |
+| --- | --- |
+| 1 | 클릭시 선택한 세션 초기화 버튼 |
+| 2 | [1] 영화 선택 버튼 |
+| 3 | [2] 영화관 선택 버튼 |
+| 4 | [3] 날짜 선택 버튼 |
+| 5 | [4] 시간 선택 버튼, 마우스 호버시 종료 시간 안내 |
+| 6 | [5] 선택한 영화 정보 |
+| 7 | [6] 영화 예매하기 최종 버튼 |
+| 추가 사항 | [1,2,3,4,5,6] 순서대로 오퍼시티 해제 및 버튼 기능 활성화 |
